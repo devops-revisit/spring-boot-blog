@@ -4,8 +4,8 @@ EXPOSE 8091
 
 ENV APP_HOME /usr/src/app
 
-COPY ../target/blog-demo-0.0.1-SNAPSHOT.jar $APP_HOME/app.jar
+COPY target/*.jar $APP_HOME/app.jar
 
 WORKDIR $APP_HOME
 
-ENTRYPOINT exec java -jar app.jar
+ENTRYPOINT ["java","-jar","app.jar"]

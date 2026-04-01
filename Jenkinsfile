@@ -30,9 +30,8 @@ pipeline
 		}
 		stage('Docker Image') {
 			steps {
-				dir('docker') {
-					sh 'docker build -t mnidevops/${IMAGE_NAME}:${BUILD_NUMBER} .'
-				}
+				sh 'docker build -t mnidevops/$IMAGE_NAME:$BUILD_NUMBER .'
+				
 			}	
 		}
 	}
