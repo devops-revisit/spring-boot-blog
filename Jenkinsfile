@@ -8,7 +8,7 @@ pipeline
 	environment
 	{
 		IMAGE_NAME = "spring-boot-blog"
-		CONTAINER_NAME = "spring-boot-blog""
+		CONTAINER_NAME = "spring-boot-blog"
 		PORT = "8091"
 	}
 	stages
