@@ -17,5 +17,10 @@ pipeline
 				sh 'mvn clean package -DskipTests'
 			}
 		}
+		stage('Verify Build') {
+			steps {
+				sh 'ls -l target/'
+			}
+		}
 	}
 }
