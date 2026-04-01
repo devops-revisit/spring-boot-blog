@@ -5,6 +5,12 @@ pipeline
 	{
 		maven "maven3.9"
 	}
+	environment
+	{
+		IMAGE_NAME = "blog-app"
+		CONTAINER_NAME = "blog-app"
+		PORT = "8091"
+	}
 	stages
 	{
 		stage('Checkout') {
@@ -20,6 +26,13 @@ pipeline
 		stage('Verify Build') {
 			steps {
 				sh 'ls -l target/'
+			}
+		}
+		stage('Docker Image') {
+			steps {
+				dir('docker') {
+					sh 'docker build -t mnidevops/${IMAGE_NAME}:${BUILD_NUMBER} .'
+				}
 			}
 		}
 	}
