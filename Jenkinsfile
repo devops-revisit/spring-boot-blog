@@ -34,5 +34,19 @@ pipeline
 				
 			}	
 		}
+		stage('Docker Push') {
+			steps {
+				withCredentials([usernamePassword(
+	            		credentialsId: 'docker-creds',
+        	    		usernameVariable: 'DOCKER_USER',
+            			passwordVariable: 'DOCKER_PASS'
+        			)]) {
+					sh '''
+					echo ${DOCKER_PASS} | docker login -u ${DOCKER_USER} --password-stdin
+         		   		docker push mnidevops/spring-boot-blog:${BUILD_NUMBER}
+					'''
+					}
+				}
+		}
 	}
 }
