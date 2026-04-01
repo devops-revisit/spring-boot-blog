@@ -12,5 +12,10 @@ pipeline
 				git credentialsId: 'github', url: 'https://github.com/devops-revisit/spring-boot-blog.git'
 			}
 		}
+		stage('Build') {
+			steps {
+				sh 'mvn clean package --DiskipTest'
+			}
+		}
 	}
 }
